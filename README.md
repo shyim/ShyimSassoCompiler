@@ -16,12 +16,15 @@ database record, so it also works on setups where plugin management is locked do
 composer require shyim/sasso-shopware-compiler
 ```
 
-Then register it in `config/bundles.php`:
+If your project uses [Symfony Flex](https://github.com/symfony/flex), that is all — Flex detects the
+bundle and writes it into `config/bundles.php` itself. Shopware projects are not Flex apps by
+default, so register it manually:
 
 ```php
+// config/bundles.php
 return [
     // …
-    Shyim\SassoCompiler\ShyimSassoCompiler::class => ['all' => true],
+    Shyim\SassoCompiler\SassoCompilerBundle::class => ['all' => true],
 ];
 ```
 

@@ -12,8 +12,12 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  * install/activate step and no database record - `composer require` plus a line in
  * `config/bundles.php` is enough. Nothing here uses the plugin lifecycle (no migrations, no
  * config, no assets), so the extra machinery would buy nothing.
+ *
+ * The class name is not free-form: Symfony Flex derives candidates from the PSR-4 prefix by taking
+ * its last segment and appending `Bundle` (`Shyim\SassoCompiler\` -> `SassoCompilerBundle`). Only a
+ * matching name gets auto-registered in `config/bundles.php`; anything else Flex silently skips.
  */
-class ShyimSassoCompiler extends Bundle
+class SassoCompilerBundle extends Bundle
 {
     public function build(ContainerBuilder $container): void
     {
