@@ -7,6 +7,29 @@ pure-Rust dart-sass alternative — instead of `scssphp`, by decorating
 Uses the `shyim/sasso-ffi` package, which talks to the native library through `ext-ffi`; no PHP
 extension has to be compiled.
 
+## Install
+
+This is a plain Symfony bundle, not a Shopware plugin — there is no install/activate step and no
+database record, so it also works on setups where plugin management is locked down.
+
+```console
+composer require shyim/sasso-shopware-compiler
+```
+
+Then register it in `config/bundles.php`:
+
+```php
+return [
+    // …
+    Shyim\SassoCompiler\ShyimSassoCompiler::class => ['all' => true],
+];
+```
+
+Clear the cache and the next `bin/console theme:compile` goes through sasso. Position in the list
+does not matter — service decoration is resolved after every bundle has registered.
+
+To go back to `scssphp`, remove the line from `config/bundles.php`.
+
 ## Why
 
 `scssphp` is unmaintained upstream and is the slowest part of a theme build. On this repository's

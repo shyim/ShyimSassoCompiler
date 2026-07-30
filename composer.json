@@ -1,7 +1,7 @@
 {
     "name": "shyim/sasso-shopware-compiler",
     "description": "Compiles the Shopware storefront theme SCSS with the native sasso extension instead of scssphp",
-    "type": "shopware-platform-plugin",
+    "type": "symfony-bundle",
     "license": "MIT",
     "autoload": {
         "psr-4": {
@@ -18,21 +18,12 @@
             "name": "Shyim"
         }
     ],
-    "extra": {
-        "shopware-plugin-class": "Shyim\\SassoCompiler\\ShyimSassoCompiler",
-        "label": {
-            "de-DE": "Sasso SCSS Compiler",
-            "en-GB": "Sasso SCSS Compiler"
-        },
-        "description": {
-            "de-DE": "Kompiliert das Storefront-Theme mit der nativen sasso-Extension anstelle von scssphp.",
-            "en-GB": "Compiles the storefront theme with the native sasso extension instead of scssphp."
-        }
-    },
     "require": {
         "php": ">=8.2",
-        "shopware/core": "~6.6.0 || ~6.7.0 || ~6.8.0",
         "shopware/storefront": "~6.6.0 || ~6.7.0 || ~6.8.0",
-        "shyim/sasso-ffi": "*"
+        "shyim/sasso-ffi": "^0.1",
+        "symfony/config": "^6.4 || ^7.0 || ^8.0",
+        "symfony/dependency-injection": "^6.4 || ^7.0 || ^8.0",
+        "symfony/http-kernel": "^6.4 || ^7.0 || ^8.0"
     }
 }
